@@ -3,7 +3,7 @@ import java.util.Arrays;
 import javax.swing.JFrame;
 public class Board extends JFrame{
 
-    char[][] STATE = new char[][]{};
+    
     private Controller c;
     public Board(){
     this.c = new Controller();
@@ -17,8 +17,8 @@ public class Board extends JFrame{
 
     public void makeButtons(){
         for (int i = 0; i < c.getState().length; i++) {
-            for (int j = 0; j < c.getState().length; j++) {
-                c.getState()[j][i] = new Location(this);    
+            for (Location[] state : c.getState()) {
+                state[i] = new Location(this);    
             }
         }
     }
@@ -27,26 +27,6 @@ public class Board extends JFrame{
         return Arrays.deepToString(c.getState());
     }
     
-        public boolean checkForWin(char symbol) {
-            // Check rows, columns, and diagonals
-            for (int i = 0; i < 3; i++) {
-                if (STATE[i][0] == symbol && STATE[i][1] == symbol && STATE[i][2] == symbol) {
-                    return true;
-                }
-                if (STATE[0][i] == symbol && STATE[1][i] == symbol && STATE[2][i] == symbol) {
-                    return true;
-                }
-            }
-            if (STATE[0][0] == symbol && STATE[1][1] == symbol && STATE[2][2] == symbol) {
-                return true;
-            }
-            if (STATE[0][2] == symbol && STATE[1][1] == symbol && STATE[2][0] == symbol) {
-                return true;
-            }
-            return false;
-        
-    }
-
         public Controller getC() {
             return this.c;
         }

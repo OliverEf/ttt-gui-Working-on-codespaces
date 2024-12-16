@@ -11,7 +11,7 @@ public class Controller {
             this.activeTurn = 'x';
             this.turn = 0;
             this.STATE = new Location[][]{
-                {null,null,null},
+            {null,null,null},
             {null,null,null},
             {null,null,null}
             };
@@ -19,6 +19,19 @@ public class Controller {
         public Location[][] getState() {
             return STATE;
         }
+
+        public boolean checkWin(){
+            // positive diagnol
+            checkDiagPos();
+            // negative diag
+            checkDiagNeg();
+            // rows
+            checkRows();
+            // cols
+            checkCols();
+            return false;
+        }
+
         public void doMove(Location l) {
             l.setmMove(this.activeTurn);
             this.turn++;
@@ -26,6 +39,7 @@ public class Controller {
         else activeTurn = 'x';
        checkEnd();
            }
+          
                private void checkEnd() {
                    
                }
