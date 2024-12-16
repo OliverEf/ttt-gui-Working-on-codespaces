@@ -6,6 +6,13 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",
+            "projectName": "ttt-gui-Working-on-codespaces_1aef6aff"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
             "projectName": "intro_7a413dca"
         },
         {
